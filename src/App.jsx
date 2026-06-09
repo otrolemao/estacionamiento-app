@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Formulario from './components/Formulario/Formulario'
+import ListaVehiculos from './components/ListaVehiculos/ListaVehiculos'
 import './App.css'
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
           {vehiculos.length === 0 ? (
             <p>No hay vehículos estacionados</p>
           ) : (
-            <p>Próximamente: lista de vehículos</p>
+            <ListaVehiculos vehiculos={vehiculos} />
           )}
         </div>
       </main>
