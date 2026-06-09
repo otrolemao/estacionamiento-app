@@ -1,15 +1,11 @@
 import { useState } from 'react'
+import { validarPatente, formatearPatente } from '../../data/helpers'
 import './Formulario.css'
 
 function Formulario({ onAgregarVehiculo }) {
   const [patente, setPatente] = useState('')
   const [hora, setHora] = useState('')
   const [permanente, setPermanente] = useState(false)
-
-  const validarPatente = (patente) => {
-    const regex = /^[A-Za-z]{4}[0-9]{2}$/
-    return regex.test(patente)
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -20,13 +16,13 @@ function Formulario({ onAgregarVehiculo }) {
     }
     
     if (!validarPatente(patente)) {
-      alert('Formato de patente inválido. Debe ser 4 letras y 2 números (Ej: ABCD12)')
+      alert('Formato de patente invalido. Debe ser 4 letras y 2 numeros (Ej: ABCD12)')
       return
     }
     
     const nuevoVehiculo = {
       id: Date.now(),
-      patente: patente.toUpperCase(),
+      patente: formatearPatente(patente),
       hora: hora,
       permanente: permanente
     }
@@ -42,10 +38,10 @@ function Formulario({ onAgregarVehiculo }) {
 
   return (
     <form className="formulario" onSubmit={handleSubmit}>
-      <h3>Registrar nuevo vehículo</h3>
+      <h3>Registrar nuevo vehiculo</h3>
       
       <div className="campo">
-        <label htmlFor="patente">Patente (4 letras + 2 números):</label>
+        <label htmlFor="patente">Patente (4 letras + 2 numeros):</label>
         <input
           type="text"
           id="patente"
@@ -67,7 +63,7 @@ function Formulario({ onAgregarVehiculo }) {
       </div>
 
       <div className="campoCheckbox">
-        <label htmlFor="permanente">¿Es permanente?</label>
+        <label htmlFor="permanente">Es permanente?</label>
         <input
           type="checkbox"
           id="permanente"
@@ -76,7 +72,7 @@ function Formulario({ onAgregarVehiculo }) {
         />
       </div>
 
-      <button type="submit">Registrar vehículo</button>
+      <button type="submit">Registrar vehiculo</button>
     </form>
   )
 }
