@@ -51,7 +51,9 @@ function App() {
       </main>
       
       <footer>
-        <p>© 2024 - Sistema de Estacionamiento</p>
+        <p>&copy; 2026 Sistema de Gestión de Estacionamientos - Todos los derechos reservados</p>
+        <p>Desarrollado por: Jorge Alejandro Martinez Arias - INACAP Osorno</p>
+        <p>Programación Front End - Evaluación Sumativa 3</p>
       </footer>
     </>
   )
